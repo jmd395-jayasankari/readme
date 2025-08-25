@@ -36,4 +36,4 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 ## Function Reference
 **process_table**:
 
-*“Purpose”*- Initiates the SCD process for a given table configuration.
+*Purpose* - Initiates the SCD process for a given table configuration.
