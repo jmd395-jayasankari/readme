@@ -22,3 +22,11 @@ The SCD-2 logic in this framework enables tracking historical changes in staging
 - effective_from_date – start date of record validity.
 
 - effective_to_date – end date of record validity.
+
+##What Users Need to Configure
+- Tables: Only include tables that require SCD-2 processing.
+
+- Columns: Specify the columns you want tracked. The framework ignores irrelevant columns.
+
+- Primary Key & Incremental Column: Ensure these are correctly defined to detect changes accurately.
+No changes to the underlying code are needed—the framework handles all SCD-2 logic automatically.
