@@ -59,13 +59,12 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 
 *Inputs* :
 
-
 - Source/sink schema and table names 
 - Primary key 
 - Incremental column 
 - Selected columns
-- 
-  Outputs* :
+
+*Outputs* : 
 
 - Delegates to full load or SCD Type 2 update. 
 - Appends log entries for success, skip, or failure. 
