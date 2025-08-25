@@ -103,3 +103,49 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 - Adds columns like __is_active, __effective_from_date.  
 - Overwrites the sink table. 
 
+
+
+**scd_type_2**:
+
+*Purpose* -  Implements Slowly Changing Dimension Type 2 logic for incremental loads.
+
+*Inputs* :
+
+
+- Source data (new and historical) 
+- Sink data 
+- Primary key 
+- Incremental column 
+- Schema and table names 
+
+
+*Outputs* : 
+
+- Writes merged results to the sink table. 
+- Logs row counts for new, updated, deleted, inactive
+
+
+*Behavior* :
+
+
+- Identifies: 
+   - New records 
+   - Updated records (by checksum) 
+   - Soft deletes (inactive) 
+   - Hard deletes 
+- Updates historical records’ validity (__effective_to_date) and status
+
+
+| Function                           | Purpose                                                              |
+|--------------------------------    |-----------------------------------------------------------------------------|
+| `table_exists(..)`                 | Checks if a Delta table exists in the lakehouse                      |
+| `fetch_incremental_records(...)`   | Retrieves records newer than the last loaded timestamp               |
+| `fetch_deleted_records(...)`       | Retrieves records that were soft deleted after the last known delete | 
+| `select_columns(...)`              | Selects a fixed set of columns from a DataFrame                      |
+| `add_hash_col(...)`                | Adds a row_check_sum column for change detection                     |
+| `generate_primary_key(...)`        | Builds a single key for both simple and composite primary keys       |
+| `add_scd_columns(...)`             | Adds SCD2 metadata columns like _is_active, _effective_from_date,etc |
+                     
+
+
+
