@@ -9,15 +9,13 @@ The SCD-2 logic in this framework enables tracking historical changes in staging
 
 ## Overview
 
-The solution automates the setup of development environments, streamlining user and group management. This allows for quick creation of fabric infrastructure, saving significant time for DevOps teams or Project Managers.
-
 **Purpose:**
 - Manage incremental updates to staging tables while preserving historical data.
 
 **Scope:**
 - Only tables and columns defined in the configuration file are processed.
 
-**Metadata_column:**
+**Metadata_columns:**
 
 - is_active – indicates if the record is the current active version.
 
