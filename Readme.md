@@ -23,7 +23,7 @@ The SCD-2 logic in this framework enables tracking historical changes in staging
 
 - effective_to_date – end date of record validity.
 
-##What Users Need to Configure
+## What Users Need to Configure
 - Tables: Only include tables that require SCD-2 processing.
 
 - Columns: Specify the columns you want tracked. The framework ignores irrelevant columns.
