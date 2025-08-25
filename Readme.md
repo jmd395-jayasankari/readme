@@ -85,16 +85,16 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 
 *Inputs* :
 
--Source schema and table 
--Sink schema and table 
--DataFrame with source data 
--Incremental column 
--Primary key 
--Selected columns 
+- Source schema and table 
+- Sink schema and table 
+- DataFrame with source data 
+- Incremental column 
+- Primary key 
+- Selected columns 
 
 *Outputs* : 
-Writes all rows to the sink with metadata. 
-Appends a full-load log entry
+- Writes all rows to the sink with metadata. 
+- Appends a full-load log entry
 
 *Behavior* :
 
