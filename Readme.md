@@ -3,7 +3,7 @@
   
 </p>
 
-*“Our Ready-to-Use SCD-2 Implementation for Reliable Data Versioning and Change Tracking”*
+*“Our Ready-to-Use SCD-2 Framework”*
 
 The SCD-2 logic in this framework enables tracking historical changes in staging tables while preserving previous versions of records. This ensures accurate auditing and historical reporting.
 
@@ -31,3 +31,9 @@ The SCD-2 logic in this framework enables tracking historical changes in staging
 - **Primary Key & Incremental Column**: Ensure these are correctly defined to detect changes accurately.
 
 No changes to the underlying code are needed—the framework handles all SCD-2 logic automatically.
+
+
+## Function Reference
+**process_table**:
+*“Purpose”*
+Initiates the SCD process for a given table configuration.
