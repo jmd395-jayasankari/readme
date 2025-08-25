@@ -44,5 +44,12 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
   - Table names 
   - Primary key 
   - Incremental column (e.g., timestamp columns) 
-  - Selected columns for tracking 
+  - Selected columns for tracking
+ 
+*Behavior* :
+
+- Reads source table. 
+- Skips processing if source is empty. 
+- Calls the scd() function to proceed with loading and transformation
+
 
