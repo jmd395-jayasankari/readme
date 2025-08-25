@@ -37,3 +37,12 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 **process_table**:
 
 *Purpose* - Initiates the SCD process for a given table configuration.
+
+*Inputs* :
+
+- row: A configuration record containing: Source and sink schemas 
+  - Table names 
+  - Primary key 
+  - Incremental column (e.g., timestamp columns) 
+  - Selected columns for tracking 
+
