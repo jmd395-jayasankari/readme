@@ -53,3 +53,54 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 - Calls the scd() function to proceed with loading and transformation
 
 
+**scd**:
+
+*Purpose* - Controls the overall logic for SCD processing, deciding between full and incremental loads.
+
+*Inputs* :
+
+
+- Source/sink schema and table names 
+- Primary key 
+- Incremental column 
+- Selected columns
+- 
+  Outputs* :
+
+- Delegates to full load or SCD Type 2 update. 
+- Appends log entries for success, skip, or failure. 
+
+
+*Behavior* :
+
+
+- If the sink table does not exist, or if new columns are added to the selected columns, a full load is triggered. Additionally, if the table does not have a primary key defined, a full load will also occur.
+- Otherwise, it performs incremental change detection and Type 2 updates. 
+- Logs the outcome of the operation
+
+
+
+**scd_initial_full_load**:
+
+*Purpose* -  Performs the first-time load of the source data into the sink with SCD tracking.
+
+*Inputs* :
+
+-Source schema and table 
+-Sink schema and table 
+-DataFrame with source data 
+-Incremental column 
+-Primary key 
+-Selected columns 
+
+*Outputs* : 
+Writes all rows to the sink with metadata. 
+Appends a full-load log entry
+
+*Behavior* :
+
+
+- Deduplicates records using primary key and timestamp. 
+- Adds columns like __is_active, __effective_from_date.  
+- Overwrites the sink table. 
+
