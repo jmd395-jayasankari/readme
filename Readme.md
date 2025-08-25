@@ -136,6 +136,9 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 - Updates historical records’ validity (__effective_to_date) and status
 
 
+## Utility Functions
+A set of helper methods for table validation, column selection, hashing, key generation, and SCD metadata management.
+
 | Function                           | Purpose                                                              |
 |--------------------------------    |-----------------------------------------------------------------------------|
 | `table_exists(..)`                 | Checks if a Delta table exists in the lakehouse                      |
@@ -145,7 +148,22 @@ No changes to the underlying code are needed—the framework handles all SCD-2 l
 | `add_hash_col(...)`                | Adds a row_check_sum column for change detection                     |
 | `generate_primary_key(...)`        | Builds a single key for both simple and composite primary keys       |
 | `add_scd_columns(...)`             | Adds SCD2 metadata columns like _is_active, _effective_from_date,etc |
-                     
+
+
+## Logging and Monitoring
+Each processing run logs:
+
+- Type of operation (Full Load, Incremental, SCD)
+
+- Source and sink metadata
+
+- Row counts for new, updated, deleted, and inactive rows
+
+Status (Success, Fail, Skipped)
+
+- Timestamp and descriptive message
+
+The logs are written to a Fabric Lakehouse table: monitor.staging_log
 
 
 
