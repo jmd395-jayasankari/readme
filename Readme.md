@@ -16,3 +16,11 @@ The solution automates the setup of development environments, streamlining user 
 
 **Scope:**
 - Only tables and columns defined in the configuration file are processed.
+
+**Metadata_column:**
+
+__is_active – indicates if the record is the current active version.
+
+__effective_from_date – start date of record validity.
+
+__effective_to_date – end date of record validity.
